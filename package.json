@@ -15,7 +15,7 @@
     "prettier": "prettier --write ."
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged"
+    "pre-commit": "npm exec lint-staged"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json}": [
@@ -68,7 +68,7 @@
     "vite-plugin-pwa": "^0.14.4",
     "workbox-window": "^6.5.4"
   },
-  "packageManager": "pnpm@7.29.0",
+  "packageManager": "npm@7.29.0",
   "engines": {
     "node": ">18.0.0"
   }

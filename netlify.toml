@@ -1,5 +1,5 @@
 [build.environment]
-  NETLIFY_USE_PNPM = "true"
+  NETLIFY_USE_PNPM = "false"
   NODE_VERSION = "18"
 
 [build]

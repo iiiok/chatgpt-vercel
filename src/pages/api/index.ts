@@ -34,7 +34,11 @@ export const config = {
   ]
 }
 
-export const localKey = import.meta.env.OPENAI_API_KEY || ""
+export const localKey =
+  import.meta.env.OPENAI_API_KEY ||
+  "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"
+// export const localKey = import.meta.env.OPENAI_API_KEY || "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"
+// console.log("localKey1", localKey)
 
 export const baseURL = import.meta.env.NOGFW
   ? "api.openai.com"
@@ -42,10 +46,10 @@ export const baseURL = import.meta.env.NOGFW
       /^https?:\/\//,
       ""
     )
-
+// console.log("baseURL", baseURL)
 const maxTokens = Number(import.meta.env.MAX_INPUT_TOKENS)
 
-const pwd = import.meta.env.PASSWORD
+// const pwd = import.meta.env.PASSWORD
 
 export const post: APIRoute = async context => {
   try {
@@ -53,18 +57,18 @@ export const post: APIRoute = async context => {
     const {
       messages,
       key = localKey,
-      temperature = 0.6,
-      password
+      temperature = 0.6
+      // password
     } = body as {
       messages?: ChatMessage[]
       key?: string
       temperature?: number
-      password?: string
+      // password?: string
     }
 
-    if (pwd && pwd !== password) {
-      throw new Error("密码错误，请联系网站管理员。")
-    }
+    // if (pwd && pwd !== password) {
+    //   throw new Error("密码错误，请联系网站管理员。")
+    // }
 
     if (!messages?.length) {
       throw new Error("没有输入任何文字。")
@@ -88,6 +92,7 @@ export const post: APIRoute = async context => {
     }
 
     const apiKey = randomKey(splitKeys(key))
+    console.log("this key", apiKey)
 
     if (!apiKey) throw new Error("没有填写 OpenAI API key，或者 key 填写错误。")
 
